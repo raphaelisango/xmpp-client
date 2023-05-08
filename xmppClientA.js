@@ -18,7 +18,7 @@ xmpp.on("chat", (from, message)=>{
 })
 
 xmpp.connect({
-    "jid": "raphaelisango.ir@gmail.com",
+    "jid": "raphael@localhost",
     "password": "admim",
     "host": "localhost",
     "port": 5222
