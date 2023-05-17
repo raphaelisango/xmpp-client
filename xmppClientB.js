@@ -1,3 +1,8 @@
+
+import {createRequire} from "module";
+
+const require = createRequire(import.meta.url);
+
 const xmpp = require("simple-xmpp");
 
 xmpp.on ("online", data => {
@@ -7,9 +12,13 @@ xmpp.on ("online", data => {
 })
 
 function send () {
-    setTimeout(send, 5000);
-    xmpp.send("hussein@localhost", `hi! ${Date.now()}`)
+    setInterval(()=>{
+    
+         xmpp.send("passy@localhost", `hi dude`)
+    }, 1000);
+    
 }
+send ();
 xmpp.on("error", error => 
     console.log(`something went wrong!${error} `))
 
@@ -18,8 +27,9 @@ xmpp.on("chat", (from, message)=>{
 })
 
 xmpp.connect({
-    "jid": "raphael@localhost",
-    "password": "admim",
+    "jid": "passy@localhost",
+    "password": "1234",
     "host": "localhost",
     "port": 5222
-})
+});
+
