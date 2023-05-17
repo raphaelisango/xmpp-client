@@ -8,7 +8,7 @@ class xmppclass {
 
   // #connect;
 
-  constructor(execa, port, domain) {
+  constructor(xmpp, execa, port, domain) {
     this.#PORT = port;
     this.#DOMAIN = domain;
     this.#EXECA = execa;
