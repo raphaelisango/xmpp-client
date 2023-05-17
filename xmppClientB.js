@@ -5,31 +5,23 @@ const require = createRequire(import.meta.url);
 
 const xmpp = require("simple-xmpp");
 
-xmpp.on ("online", data => {
-    console.log("Hey you are online! ")
-    console.log(`Connected as ${data.jid.user}`)
-    send();
-})
-
-function send () {
-    setInterval(()=>{
+import XmppClass from "./xmppClass.js"
+  
+  
+  const Xmpp = XmppClass(xmpp, 5222,"localhost");
+       
+      Xmpp.On("error", error => console.log(`something went wrong!${error} `))
+      Xmpp.On("online", data => {
+                setInterval(()=>{
     
-         xmpp.send("passy@localhost", `hi dude`)
+         Xmpp.Send("percy","localhost", `hi dude`)
     }, 1000);
-    
-}
-send ();
-xmpp.on("error", error => 
-    console.log(`something went wrong!${error} `))
-
-xmpp.on("chat", (from, message)=>{
-    console.log(`Got a message! ${message} from ${from}`)
-})
-
-xmpp.connect({
-    "jid": "passy@localhost",
-    "password": "1234",
-    "host": "localhost",
-    "port": 5222
-});
+     })
+       
+      Xmpp.connect({
+            "jid": "percy@localhost",
+            "password": "12345",
+            "host": "localhost",
+            "port": 5222
+      });
 
