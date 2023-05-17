@@ -26,7 +26,7 @@ class xmppclass {
   Send(user, host, message) {
     this.#XMPP.send(`${user}@${host}`, message);
   }
-  On(event) {
+  On(event, callbackfunc) {
     this.#XMPP.on(event, callbackfunc);
   }
   async User(command, script) {
