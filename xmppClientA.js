@@ -1,3 +1,8 @@
+import {createRequire} from "module";
+
+const require = createRequire(import.meta.url);
+
+
 const xmpp = require("simple-xmpp");
 //hussein
 xmpp.on ("online", data => {
@@ -8,7 +13,7 @@ xmpp.on ("online", data => {
 
 function send () {
     setTimeout(send, 5000);
-    xmpp.send("percy@localhost", `hi! ${Date.now()}`)
+   // xmpp.send("percy@localhost", `hi! ${Date.now()}`)
 }
 xmpp.on("error", error => 
     console.log(`something went wrong!${error} `))

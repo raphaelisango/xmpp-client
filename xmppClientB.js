@@ -13,8 +13,8 @@ import XmppClass from "./xmppClass.js"
       Xmpp.On("error", error => console.log(`something went wrong!${error} `))
       Xmpp.On("online", data => {
                 setInterval(()=>{
-    
-         Xmpp.Send("percy","localhost", `hi dude`)
+         console.log("hi dude"); console.log(Xmpp.Send("percy","localhost", `hi dude`));
+         
     }, 1000);
      })
        
